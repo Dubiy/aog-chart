@@ -1,0 +1,121 @@
+#myChart {
+    width: 1440px;
+    margin: 0 auto;
+    max-width: calc(100% - 80px);
+
+    .type-switcher, .period-switcher {
+        list-style: none;
+        margin: 0 0 10px 0;
+        padding: 0;
+        text-align: center;
+
+        li {
+            width: 370px;
+            height: 45px;
+            max-width: calc(50% - 30px);
+            margin: 5px;
+            display: inline-block;
+            position: relative;
+
+            button {
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 100%;
+                background-color: #e8e8e8;
+                border: none;
+                border-radius: 3px;
+                outline: none;
+                color: #7b7b7b;
+                font-size: 18px;
+                text-transform: uppercase;
+
+                &:active, &:focus {
+                    outline: none;
+                }
+            }
+
+            &.active {
+                button {
+                    background-color: #00bbd4;
+                    color: white;
+                }
+
+                &:after {
+                    content: " ";
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 7px 7.5px 0 7.5px;
+                    border-color: #00bbd4 transparent transparent transparent;
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    margin-left: -7px;
+                    display: block;
+
+                }
+            }
+        }
+    }
+
+    .chart-wrapper {
+        position: relative;
+        border: 1px solid #00bcd4;
+        overflow: hidden;
+        border-radius: 5px;
+
+        &.loading {
+            &:before {
+                content: " ";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                z-index: 1;
+                background-color: rgba(0,0,0,.05);
+            }
+
+            &:after {
+                content: "\f013";
+                display: inline-block;
+                font: normal normal normal 14px/1 FontAwesome;
+                text-rendering: auto;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                animation: fa-spin 2s infinite linear;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                z-index: 2;
+                margin: -24.5px 0 0 -21px;
+                font-size: 49px;
+                color: rgb(100,100,100);
+            }
+        }
+    }
+
+    .period-switcher {
+        margin: 10px 0 0 0;
+
+        li {
+            width: 170px;
+            height: 36px;
+            max-width: calc(33% - 20px);
+
+            &.active {
+                &:after {
+                    top: auto;
+                    bottom: 100%;
+                    border-width: 0 7.5px 7px 7.5px;
+                    border-color: transparent transparent #00bbd4 transparent;
+                }
+            }
+        }
+    }
+}
+
+//.type-switcher li.active, .period-switcher li.active {
+//    border: 3px solid gray;
+//}
